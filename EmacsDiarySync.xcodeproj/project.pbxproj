@@ -18,6 +18,7 @@
 		3A8D762018773A0300B3068A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8D75FF18773A0300B3068A /* Cocoa.framework */; };
 		3A8D762818773A0300B3068A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D762618773A0300B3068A /* InfoPlist.strings */; };
 		3A8D762A18773A0300B3068A /* EmacsDiarySyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D762918773A0300B3068A /* EmacsDiarySyncTests.m */; };
+		3A8D763618773D9000B3068A /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8D763518773D9000B3068A /* EventKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		3A8D762518773A0300B3068A /* EmacsDiarySyncTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EmacsDiarySyncTests-Info.plist"; sourceTree = "<group>"; };
 		3A8D762718773A0300B3068A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3A8D762918773A0300B3068A /* EmacsDiarySyncTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmacsDiarySyncTests.m; sourceTree = "<group>"; };
+		3A8D763518773D9000B3068A /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A8D763618773D9000B3068A /* EventKit.framework in Frameworks */,
 				3A8D760018773A0300B3068A /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +98,7 @@
 		3A8D75FE18773A0300B3068A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A8D763518773D9000B3068A /* EventKit.framework */,
 				3A8D75FF18773A0300B3068A /* Cocoa.framework */,
 				3A8D761E18773A0300B3068A /* XCTest.framework */,
 				3A8D760118773A0300B3068A /* Other Frameworks */,

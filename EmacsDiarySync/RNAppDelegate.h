@@ -9,7 +9,6 @@
 #import <Cocoa/Cocoa.h>
 
 @interface RNAppDelegate : NSObject <NSApplicationDelegate>
-
-@property (assign) IBOutlet NSWindow *window;
-
+@property (assign) IBOutlet NSMenu *statusMenu;
+- (IBAction)refreshDiary: (id)sender;
 @end
