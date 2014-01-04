@@ -36,7 +36,7 @@ NSString *diaryPath;
      selector:@selector(refreshDiary:)
      name:EKEventStoreChangedNotification
      object:store];
-    [self refreshDiary:nil];
+    [self performSelector:@selector(refreshDiary:) withObject:self afterDelay: 2.0];
 }
 
 - (void) openEventStore
@@ -101,8 +101,7 @@ NSString *diaryPath;
         NSArray *events = [store eventsMatchingPredicate:predicate];
         
         NSDateFormatter *dfTime = [NSDateFormatter new];
-        [dfTime setDateStyle: NSDateFormatterNoStyle];
-        [dfTime setTimeStyle:NSDateFormatterShortStyle];
+        [dfTime setDateFormat: @"hh:mma"];
         NSDateFormatter *dfDate = [NSDateFormatter new];
         [dfDate setDateStyle:NSDateFormatterShortStyle];
         [dfDate setTimeStyle: NSDateFormatterNoStyle];
@@ -119,12 +118,14 @@ NSString *diaryPath;
                [output appendString:
                 [NSString stringWithFormat: @"%@-%@ ",
                  [dfTime stringFromDate:[ev startDate]],
-                 [dfTime stringFromDate:[ev startDate]]]];
+                 [dfTime stringFromDate:[ev endDate]]]];
             }
-            [output appendString:
-             [NSString stringWithFormat: @"(%@) %@",
-              [[ev calendar] title],
-              [ev title]]];
+            if([ev organizer]){
+                [output appendFormat: @"(%@-%@) ", [[ev calendar] title], [[ev organizer] name]];
+            } else {
+                [output appendFormat: @"(%@) ", [[ev calendar] title]];
+            }
+            [output appendString:[ev title]];
             if([ev location] && [[ev location] length]>0){
                 [output appendString:[NSString stringWithFormat: @" [%@]", [ev location]]];
             }
@@ -138,6 +139,8 @@ NSString *diaryPath;
         [self indicateNormalCondition];
     } else {
         [self indicateErrorCondition];
+        // Try again in a bit
+        [self performSelector:@selector(refreshDiary:) withObject:self afterDelay: 30];
     }
 }
 
