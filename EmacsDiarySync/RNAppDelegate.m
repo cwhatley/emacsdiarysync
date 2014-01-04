@@ -87,7 +87,7 @@ NSString *diaryPath;
         
         // Create the end date components
         NSDateComponents *twoWeeksFromNowComponents = [[NSDateComponents alloc] init];
-        twoWeeksFromNowComponents.week = 1;
+        twoWeeksFromNowComponents.week = 2;
         NSDate *twoWeeksFromNow = [calendar dateByAddingComponents:twoWeeksFromNowComponents
                                                            toDate:[NSDate date]
                                                           options:0];
@@ -115,10 +115,9 @@ NSString *diaryPath;
             [output appendString: [dfDate stringFromDate:[ev startDate]]];
             [output appendString: @" "];
             if(![ev isAllDay]){
-               [output appendString:
-                [NSString stringWithFormat: @"%@-%@ ",
+               [output appendFormat: @"%@-%@ ",
                  [dfTime stringFromDate:[ev startDate]],
-                 [dfTime stringFromDate:[ev endDate]]]];
+                 [dfTime stringFromDate:[ev endDate]]];
             }
             if([ev organizer]){
                 [output appendFormat: @"(%@-%@) ", [[ev calendar] title], [[ev organizer] name]];
@@ -127,7 +126,7 @@ NSString *diaryPath;
             }
             [output appendString:[ev title]];
             if([ev location] && [[ev location] length]>0){
-                [output appendString:[NSString stringWithFormat: @" [%@]", [ev location]]];
+                [output appendFormat: @" [%@]", [ev location]];
             }
             [output appendString:@"\n"];
             [self updateRefreshProgress: idx++ ofTotal: [events count]];
