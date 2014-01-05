@@ -8,6 +8,11 @@ between yesterday and 10 days from now to an emacs diary-compatible file.
 
 EDS depends upon the EventKit framework which is, OSX 10.8 or later (though I've only tried it on 10.9).
 
+WARNING: Destructive to Your Emacs Diary File
+---------------------------------------------
+
+If you fire this app up, it will mercilessly destroy your diary file with no prompting or regret. My use case is all about getting data into the file.
+
 Use in conjunction with Org-Mode in Emacs
 -----------------------------------------
 
